@@ -2,10 +2,22 @@
 
 Markdown extension to wrap images in a lightbox.
 
-Will only wrap images with 'alt' attribute starting with '!'.
+Will only wrap images by adding **"!"** right after the opening **"["** bracket of the image.
 
 ```
-![!description](/img/pic1.img)
+![!Description](/img/pic1.png)
+```
+
+This will Output :
+
+```html
+<p>
+  <div class="lightgallery">
+    <a href="../img/pic1.png">
+      <img alt="!Description" src="../img/pic1.png" />
+    </a>
+  </div>
+</p>
 ```
 
 The extension is made to work with [lightgallery.js](https://github.com/sachinchoolur/lightgallery.js) a full featured JavaScript lightgallery/lightbox with no dependencies.
@@ -18,20 +30,20 @@ The extension is made to work with [lightgallery.js](https://github.com/sachinch
 import markdown
 from lightgallery import LightGalleryExtension
 
-print markdown.markdown('![!foo bar](/img/toto.img)', extensions=[LightGalleryExtension()])
+print markdown.markdown('![!description](/img/pic1.png)', extensions=[LightGalleryExtension()])
 ```
 
 
 ## Install
 
 ```bash
-$> cd lightgallery-markdown
+$ cd lightgallery-markdown
 
-$> python setup.py install
+$ python setup.py install
 ```
 
 ## How to make it works with Mkdocs
- 
+
 **1.** Create a **theme** folder will the following structure in your Mkdocs folder
 
 ```
@@ -89,3 +101,7 @@ theme:
 markdown_extensions:
   - lightgallery
 ```
+
+## License
+
+MIT License
