@@ -31,5 +31,5 @@ class LightGalleryExtension(Extension):
         md.treeprocessors.add("lightbox", ImagesTreeprocessor(md), "_end")
 
 
-def makeExtension(configs={}):
-    return LightGalleryExtension(configs=configs)
+def makeExtension(*args, **kwargs):
+    return LightGalleryExtension(**kwargs)
