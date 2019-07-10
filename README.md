@@ -30,7 +30,7 @@ The extension is made to work with [lightgallery.js](https://github.com/sachinch
 import markdown
 from lightgallery import LightGalleryExtension
 
-print markdown.markdown('![!description](/img/pic1.png)', extensions=[LightGalleryExtension()])
+print(markdown.markdown('![!description](/img/pic1.png)', extensions=[LightGalleryExtension()]))
 ```
 
 
