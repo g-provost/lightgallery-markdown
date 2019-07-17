@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='lightgallery',
-    version='0.1.0',
+    version='0.1.1',
     author='Gauthier Provost',
     author_email='gauthier@kobol.io',
     description='Markdown extension to wrap images in lightbox/lightgallery',
