@@ -18,7 +18,7 @@ class ImagesTreeprocessor(Treeprocessor):
             if self.re.match(desc):
                 if self.config["strip_leading_exclamation_mark"]:
                     desc = desc.lstrip("!")
-            
+
                 image.set("alt", desc)
                 parent = parent_map[image]
                 ix = list(parent).index(image)
@@ -26,6 +26,10 @@ class ImagesTreeprocessor(Treeprocessor):
                 div_node.set("class", "lightgallery")
                 new_node = etree.Element('a')
                 new_node.set("href", image.attrib["src"])
+
+                if self.config["show_description_in_lightgallery"]:
+                    new_node.set("data-sub-html", desc)
+
                 new_node.append(image)
                 div_node.append(new_node)
                 parent.insert(ix, div_node)
@@ -35,7 +39,8 @@ class ImagesTreeprocessor(Treeprocessor):
 class LightGalleryExtension(Extension):
     def __init__(self, **kwargs):
         self.config = {
-            'strip_leading_exclamation_mark' : [False, 'Strip leading exclamation mark from description. Default: False']
+            'strip_leading_exclamation_mark' : [False, 'Strip leading exclamation mark from description. Default: False'],
+            'show_description_in_lightgallery' : [False, 'Show description as caption in lightgallery. Default: False']
         }
         super(LightGalleryExtension, self).__init__(**kwargs)
 
