@@ -35,12 +35,19 @@ class ImagesTreeprocessor(Treeprocessor):
                 parent.insert(ix, div_node)
                 parent.remove(image)
 
+                if self.config["show_description_as_inline_caption"]:
+                    inline_caption_node = etree.Element('p')
+                    inline_caption_node.set("class", self.config["custom_inline_caption_css_class"])
+                    inline_caption_node.text = desc
+                    parent.insert(ix + 1, inline_caption_node)
 
 class LightGalleryExtension(Extension):
     def __init__(self, **kwargs):
         self.config = {
             'strip_leading_exclamation_mark' : [False, 'Strip leading exclamation mark from description. Default: False'],
-            'show_description_in_lightgallery' : [False, 'Show description as caption in lightgallery. Default: False']
+            'show_description_in_lightgallery' : [False, 'Show description as caption in lightgallery. Default: False'],
+            'show_description_as_inline_caption' : [False, 'Show description as inline caption below the image. Default: False'],
+            'custom_inline_caption_css_class' : ['', 'Custom CSS classes which are applied to the inline caption paragraph. Multiple classes to be separated via space. Default: empty']
         }
         super(LightGalleryExtension, self).__init__(**kwargs)
 
