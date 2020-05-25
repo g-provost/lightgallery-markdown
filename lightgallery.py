@@ -5,9 +5,10 @@ import re
 
 
 class ImagesTreeprocessor(Treeprocessor):
-    def __init__(self, md):
+    def __init__(self, config, md):
         Treeprocessor.__init__(self, md)
         self.re = re.compile(r'^!.*')
+        self.config = config
 
     def run(self, root):
         parent_map = {c: p for p in root.iter() for c in p}
@@ -15,6 +16,9 @@ class ImagesTreeprocessor(Treeprocessor):
         for image in images:
             desc = image.attrib["alt"]
             if self.re.match(desc):
+                if self.config["strip_leading_exclamation_mark"]:
+                    desc = desc.lstrip("!")
+            
                 image.set("alt", desc)
                 parent = parent_map[image]
                 ix = list(parent).index(image)
@@ -29,8 +33,16 @@ class ImagesTreeprocessor(Treeprocessor):
 
 
 class LightGalleryExtension(Extension):
+    def __init__(self, **kwargs):
+        self.config = {
+            'strip_leading_exclamation_mark' : [False, 'Strip leading exclamation mark from description. Default: False']
+        }
+        super(LightGalleryExtension, self).__init__(**kwargs)
+
+
     def extendMarkdown(self, md, md_globals):
-        md.treeprocessors.add("lightbox", ImagesTreeprocessor(md), "_end")
+        config = self.getConfigs()
+        md.treeprocessors.add("lightbox", ImagesTreeprocessor(config, md), "_end")
 
 
 def makeExtension(*args, **kwargs):
