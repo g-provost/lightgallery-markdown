@@ -14,7 +14,7 @@ This will Output :
 <p>
   <div class="lightgallery">
     <a href="../img/pic1.png">
-      <img alt="!Description" src="../img/pic1.png" />
+      <img alt="Description" src="../img/pic1.png" />
     </a>
   </div>
 </p>
@@ -110,7 +110,6 @@ All settings of the extension are optional and can be omitted.
 # Extensions
 markdown_extensions:
   - lightgallery:
-      strip_leading_exclamation_mark: true | false
       show_description_in_lightgallery: true | false
       show_description_as_inline_caption: true | false
       custom_inline_caption_css_class: 'my-caption-class'
@@ -118,7 +117,6 @@ markdown_extensions:
 
 | Setting | Description | Default Value |
 |-|-|-|
-| `strip_leading_exclamation_mark` | Strips the leading exclamation mark from description. | `false` |
 | `show_description_in_lightgallery` | Adds the description as caption in lightgallery dialog. | `false` |
 | `show_description_as_inline_caption` | Adds the description as inline caption below the image. | `false` |
 | `custom_inline_caption_css_class` | Custom CSS classes which are applied to the inline caption paragraph. Multiple classes are separated via space. | Empty |

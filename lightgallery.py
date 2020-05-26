@@ -16,9 +16,7 @@ class ImagesTreeprocessor(Treeprocessor):
         for image in images:
             desc = image.attrib["alt"]
             if self.re.match(desc):
-                if self.config["strip_leading_exclamation_mark"]:
-                    desc = desc.lstrip("!")
-
+                desc = desc.lstrip("!")
                 image.set("alt", desc)
                 parent = parent_map[image]
                 ix = list(parent).index(image)
@@ -44,7 +42,6 @@ class ImagesTreeprocessor(Treeprocessor):
 class LightGalleryExtension(Extension):
     def __init__(self, **kwargs):
         self.config = {
-            'strip_leading_exclamation_mark' : [False, 'Strips the leading exclamation mark from description. Default: False'],
             'show_description_in_lightgallery' : [False, 'Adds the description as caption in lightgallery dialog. Default: False'],
             'show_description_as_inline_caption' : [False, 'Adds the description as inline caption below the image. Default: False'],
             'custom_inline_caption_css_class' : ['', 'Custom CSS classes which are applied to the inline caption paragraph. Multiple classes are separated via space. Default: empty']
