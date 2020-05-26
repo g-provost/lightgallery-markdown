@@ -13,7 +13,7 @@ This will Output :
 ```html
 <p>
   <div class="lightgallery">
-    <a href="../img/pic1.png">
+    <a href="../img/pic1.png" data-sub-html="Description">
       <img alt="Description" src="../img/pic1.png" />
     </a>
   </div>
@@ -117,7 +117,7 @@ markdown_extensions:
 
 | Setting | Description | Default Value |
 |-|-|-|
-| `show_description_in_lightgallery` | Adds the description as caption in lightgallery dialog. | `false` |
+| `show_description_in_lightgallery` | Adds the description as caption in lightgallery dialog. | `true` |
 | `show_description_as_inline_caption` | Adds the description as inline caption below the image. | `false` |
 | `custom_inline_caption_css_class` | Custom CSS classes which are applied to the inline caption paragraph. Multiple classes are separated via space. | Empty |
 

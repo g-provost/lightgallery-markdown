@@ -42,7 +42,7 @@ class ImagesTreeprocessor(Treeprocessor):
 class LightGalleryExtension(Extension):
     def __init__(self, **kwargs):
         self.config = {
-            'show_description_in_lightgallery' : [False, 'Adds the description as caption in lightgallery dialog. Default: False'],
+            'show_description_in_lightgallery' : [True, 'Adds the description as caption in lightgallery dialog. Default: True'],
             'show_description_as_inline_caption' : [False, 'Adds the description as inline caption below the image. Default: False'],
             'custom_inline_caption_css_class' : ['', 'Custom CSS classes which are applied to the inline caption paragraph. Multiple classes are separated via space. Default: empty']
         }
