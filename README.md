@@ -13,8 +13,8 @@ This will Output :
 ```html
 <p>
   <div class="lightgallery">
-    <a href="../img/pic1.png">
-      <img alt="!Description" src="../img/pic1.png" />
+    <a href="../img/pic1.png" data-sub-html="Description">
+      <img alt="Description" src="../img/pic1.png" />
     </a>
   </div>
 </p>
@@ -101,6 +101,26 @@ theme:
 markdown_extensions:
   - lightgallery
 ```
+
+**5.** Change extension settings in **mkdocs.yml**
+
+All settings of the extension are optional and can be omitted.
+
+```
+# Extensions
+markdown_extensions:
+  - lightgallery:
+      show_description_in_lightgallery: true | false
+      show_description_as_inline_caption: true | false
+      custom_inline_caption_css_class: 'my-caption-class'
+```
+
+| Setting | Description | Default Value |
+|-|-|-|
+| `show_description_in_lightgallery` | Adds the description as caption in lightgallery dialog. | `true` |
+| `show_description_as_inline_caption` | Adds the description as inline caption below the image. | `false` |
+| `custom_inline_caption_css_class` | Custom CSS classes which are applied to the inline caption paragraph. Multiple classes are separated via space. | Empty |
+
 
 ## License
 
