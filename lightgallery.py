@@ -12,7 +12,10 @@ class ImagesTreeprocessor(Treeprocessor):
 
     def run(self, root):
         parent_map = {c: p for p in root.iter() for c in p}
-        images = root.getiterator("img")
+        try:
+            images = root.iter("img")
+        except AttributeError:
+            images = root.getiterator("img")
         for image in images:
             desc = image.attrib["alt"]
             if self.re.match(desc):
