@@ -18,5 +18,11 @@ setup(
     py_modules=['lightgallery'],
     install_requires = ['markdown>=3.0'],
     classifiers=['Topic :: Text Processing :: Markup :: HTML'],
-    license='MIT License'
+    license='MIT License',
+    url='https://github.com/g-provost/lightgallery-markdown',
+    project_urls={
+        'Source': 'https://github.com/g-provost/lightgallery-markdown',
+        'Documentation': 'https://github.com/g-provost/lightgallery-markdown',
+        'Tracker': 'https://github.com/g-provost/lightgallery-markdown/issues'
+    }
 )
