@@ -1,3 +1,7 @@
 build/
 dist/
 lightgallery.egg-info/
+
+#Eclipse Artifacts
+.project
+.settings 
