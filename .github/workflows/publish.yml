@@ -25,7 +25,7 @@ jobs:
         run: python setup.py build sdist bdist_wheel --universal
 
       - name: Publish to PyPI
-        if: github.repository == 'g-provost/lightgallery.markdown'
+        if: github.repository == 'g-provost/lightgallery-markdown'
         env:
           PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
