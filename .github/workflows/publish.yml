@@ -1,0 +1,32 @@
+name: publish
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build_and_publish:
+    name: Build and Publish Package on PyPI
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Python 3.x
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.x
+
+      - name: Install Python Build Dependencies
+        run: pip install --upgrade setuptools wheel twine
+
+      - name: Build lightgallery-markdown Package
+        run: python setup.py build sdist bdist_wheel --universal
+
+      - name: Publish to PyPI
+        if: github.repository == 'g-provost/lightgallery.markdown'
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: twine upload --disable-progress-bar -u ${PYPI_USERNAME} -p ${PYPI_PASSWORD} dist/*
