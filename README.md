@@ -37,9 +37,7 @@ print(markdown.markdown('![!description](/img/pic1.png)', extensions=[LightGalle
 ## Install
 
 ```bash
-$ cd lightgallery-markdown
-
-$ python setup.py install
+$ pip install lightgallery
 ```
 
 ## How to make it works with Mkdocs

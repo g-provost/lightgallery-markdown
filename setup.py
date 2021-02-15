@@ -4,12 +4,12 @@ from os import path
 # Read the content of the README.md file as long_description
 root_directory = path.abspath(path.dirname(__file__))
 with open(path.join(root_directory, 'README.md'), encoding='utf-8') as readme_file:
-    readme_content = readme_file.read() 
+    readme_content = readme_file.read()
 
 # Package Definition
 setup(
     name='lightgallery',
-    version='0.1.2',
+    version='0.5',
     author='Gauthier Provost',
     author_email='gauthier@kobol.io',
     description='Markdown extension to wrap images in lightbox/lightgallery',
