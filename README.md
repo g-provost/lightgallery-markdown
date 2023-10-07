@@ -59,7 +59,7 @@ theme/
 - dist/fonts/lg.* **->** theme/fonts/
 - dist/img/loading.gif **->** theme/img/
 
-**3.** Create a **theme/main.hml** file and add the following code to the file
+**3.** Create a **theme/main.html** file and add the following code to the file
 
 ```html
 {% extends "base.html" %}
